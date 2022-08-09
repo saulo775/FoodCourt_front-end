@@ -3,14 +3,12 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     
     :root {
-        --primary: #8C11BE;
-        --primary-ligth: #A328D6;
-        --scrollbar: #da83ff92;
-        --green: #03AC00;
-        --red: #CE2020;
-        --black: #000000;
+        --primary: #C39A6C;
+        --green: #3CD307;
+        --red: #D32007;
+        --black: #303030;
         --white: #FFFFFF;
-        --gray: #868686;
+        --gray: #4B4B4B;
     }
     
     * {
@@ -32,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         -webkit-font-smooth: antialiased;
-        background-color: var(--primary);
+        background-color: var(--black);
     }
 
     main {
@@ -45,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1, h2, h3, h4, input, textarea, a{
-        //font-family: 'Raleway', sans-serif;
+        font-family: 'roboto', sans-serif;
     }
 
     svg {
