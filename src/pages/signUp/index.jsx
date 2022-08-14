@@ -21,11 +21,7 @@ function SignUp() {
         e.preventDefault();
         try {
             await axios.post("http://localhost:5500/sign-up", {
-                name,
-                email,
-                password,
-                avatarURL,
-                permission
+                name, email, password, avatarURL, permission
             });
 
             setName('');
@@ -35,7 +31,8 @@ function SignUp() {
             setPermission('');
             navigate("/sign-in");
         } catch (e) {
-            console.log("error", e.response.data)
+            alert(e.response.data.message)
+            console.log("error", e.response.data.message)
         }
     }
 
