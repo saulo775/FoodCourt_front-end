@@ -32,6 +32,7 @@ export const Form = styled.form`
         padding: 0.75rem 1rem;
         outline: none;
     }
+    
 
     button {
         background-color: var(--primary);
@@ -51,13 +52,17 @@ export const Form = styled.form`
         margin-top: 0.5rem;
         a {
             color: var(--primary);
-            font-weight: 600    ;
+            font-weight: 600;
         }
     }
 
     a {
         color: var(--primary);
         margin-top: 10px;
+    }
+
+    @media screen and (max-width: 680px){
+            select: {height: 600px}
     }
 `;
 

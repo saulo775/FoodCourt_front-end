@@ -7,6 +7,7 @@ import SignIn from "./pages/signIn/";
 import Gerency from "./pages/manager/gerency";
 import InsertTable from "./pages/manager/insertTable";
 import InsertCategory from "./pages/manager/insertCategory";
+import InsertProduct from "./pages/manager/insertProduct";
 
 function App() {
   const [token, setToken] = React.useState();
@@ -17,9 +18,13 @@ function App() {
         <Routes>
           <Route path='/sign-up/' element={<SignUp />} />
           <Route path='/sign-in/' element={<SignIn />} />
+          {/* Manager Routes */}
           <Route path="/manager" element={< Gerency />} />
           <Route path="/manager/insert/tables" element={< InsertTable />} />
           <Route path="/manager/insert/category" element={< InsertCategory />} />
+          <Route path="/manager/insert/product" element={< InsertProduct />} />
+
+          {/* Waiter Routes */}
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

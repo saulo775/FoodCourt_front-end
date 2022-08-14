@@ -12,7 +12,7 @@ import { Logo } from "./styles";
 
 function InsertTable() {
     const { token, user } = React.useContext(userContext)
-    const [numTables, setNumTables] = React.useState();
+    const [numTables, setNumTables] = React.useState(2);
     const navigate = useNavigate();
 
     async function handleInsertTables(e) {
