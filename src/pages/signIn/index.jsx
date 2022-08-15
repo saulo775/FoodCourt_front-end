@@ -30,7 +30,7 @@ function SignIn() {
             if (data.user.permission === 'gerente') {
                 navigate("/manager");
             } else if (data.user.permission === 'garçom') {
-                navigate("/waiter");
+                navigate("/waiter/tables");
             }
 
 

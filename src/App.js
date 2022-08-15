@@ -15,14 +15,26 @@ function App() {
   const [token, setToken] = React.useState();
   const [user, setUser] = React.useState();
   const [table, setTable] = React.useState();
+  const [cart, setCart] = React.useState([]);
 
   return (
-    <UserContext.Provider value={{ token, setToken, user, setUser, table, setTable }}>
+    <UserContext.Provider
+      value={{
+        token,
+        setToken,
+        user,
+        setUser,
+        table,
+        setTable,
+        cart,
+        setCart
+      }}>
       <BrowserRouter>
         <Routes>
           <Route path='/sign-up/' element={<SignUp />} />
           <Route path='/sign-in/' element={<SignIn />} />
           <Route path='/' element={<SignIn />} />
+
           {/* Manager Routes */}
           <Route path="/manager" element={< Gerency />} />
           <Route path="/manager/insert/tables" element={< InsertTable />} />
@@ -30,11 +42,8 @@ function App() {
           <Route path="/manager/insert/product" element={< InsertProduct />} />
 
           {/* Waiter Routes */}
-
-          <Route path="/waiter" element={< Hall />} />
+          <Route path="/waiter/tables" element={< Hall />} />
           <Route path="/waiter/menu" element={<Menu />} />
-
-
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

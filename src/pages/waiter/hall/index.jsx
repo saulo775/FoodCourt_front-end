@@ -32,7 +32,7 @@ function Hall() {
 
     function handleSelectTable(table) {
         setTable(table);
-        navigate("/menu/waiter");
+        navigate("/waiter/menu");
     }
 
     return token ? (
