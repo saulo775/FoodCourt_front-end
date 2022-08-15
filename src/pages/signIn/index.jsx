@@ -28,8 +28,11 @@ function SignIn() {
             localStorage.setItem("user", JSON.stringify(data.user));
 
             if (data.user.permission === 'gerente') {
-                navigate("/manager")
+                navigate("/manager");
+            } else if (data.user.permission === 'garçom') {
+                navigate("/waiter");
             }
+
 
         } catch (e) {
             alert(e.response.data.message)

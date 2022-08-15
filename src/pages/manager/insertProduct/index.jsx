@@ -33,7 +33,7 @@ function InsertProduct() {
         promise.catch((e) => {
             console.log(e);
         })
-    }, []);
+    }, [token]);
 
     async function handleInsertCategory(e) {
         e.preventDefault();
