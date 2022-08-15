@@ -10,6 +10,7 @@ import InsertCategory from "./pages/manager/insertCategory";
 import InsertProduct from "./pages/manager/insertProduct";
 import Hall from "./pages/waiter/hall";
 import Menu from "./pages/waiter/menu";
+import Cart from "./pages/waiter/cart";
 
 function App() {
   const [token, setToken] = React.useState();
@@ -44,6 +45,7 @@ function App() {
           {/* Waiter Routes */}
           <Route path="/waiter/tables" element={< Hall />} />
           <Route path="/waiter/menu" element={<Menu />} />
+          <Route path="/waiter/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

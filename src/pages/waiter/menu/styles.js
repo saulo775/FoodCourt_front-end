@@ -74,7 +74,6 @@ export const Product = styled.div`
     button {
         background-color: var(--green);
         color: white;
-        border: none;
         padding: 0 1rem;
         font-size: 1.25rem;
         font-weight: 600;
