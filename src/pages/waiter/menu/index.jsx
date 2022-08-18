@@ -61,13 +61,16 @@ function Menu() {
                 <h1>Mesa {table.numberTable}</h1>
                 <div>
                     <FiShoppingCart
+                        className={cart.length > 0 ? 'active' : ''}
+
                         onClick={() => {
                             navigate("/waiter/cart")
                         }}
                     />
                     <FiCornerDownLeft
                         onClick={() => {
-                            navigate("/waiter/tables")
+                            setCart([]);
+                            navigate("/waiter/tables");
                         }}
                     />
                 </div>

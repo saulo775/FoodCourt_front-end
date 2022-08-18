@@ -7,27 +7,13 @@ export const Header = styled.header`
     padding: 1rem 2rem;
     color: white;
     
-    h1 {
+    svg {
         font-size: 2rem;
-    }
-
-    div {
-        display: flex;
-        align-items: center;
-
-        svg {
-            font-size: 2rem;
-            :last-child {
-                margin-left: 1rem;
-            }
-
-            
-        }
-
-        svg.active {
-            color: var(--primary);
+        :last-child {
+            margin-left: 1rem;
         }
     }
+
 `;
 
 export const Container = styled.section`
@@ -36,14 +22,18 @@ export const Container = styled.section`
     background-color: #8D8D92;
     width: 100%;
     min-height: 87vh;
-    padding: 0 2rem;
+    padding: 2rem;
+
+    button {
+        background-color: var(--green);
+        padding: 1rem 2rem;
+    }
 
 
     @media screen and (max-width: 640px){
-        padding: 0 0.5rem;
+        padding: 1rem 0.5rem;
     }
 `;
-
 
 export const Categories = styled.ul`
     display: flex;
@@ -80,6 +70,7 @@ export const Product = styled.div`
     button {
         background-color: var(--green);
         color: white;
+        border: none;
         padding: 0 1rem;
         font-size: 1.25rem;
         font-weight: 600;
@@ -112,5 +103,19 @@ export const Infos = styled.section`
             font-size: 1rem;
         }
     }
-
 `;
+
+export const Total = styled.div`
+    background-color: var(--primary);
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    max-width: 12rem;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+`

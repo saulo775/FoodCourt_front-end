@@ -11,6 +11,9 @@ import InsertProduct from "./pages/manager/insertProduct";
 import Hall from "./pages/waiter/hall";
 import Menu from "./pages/waiter/menu";
 import Cart from "./pages/waiter/cart";
+import TablesBusy from "./pages/cashier/tablesBusy";
+import TableAccount from "./pages/cashier/tableAccount";
+
 
 function App() {
   const [token, setToken] = React.useState();
@@ -46,6 +49,11 @@ function App() {
           <Route path="/waiter/tables" element={< Hall />} />
           <Route path="/waiter/menu" element={<Menu />} />
           <Route path="/waiter/cart" element={<Cart />} />
+
+          {/* Waiter Routes */}
+          <Route path="/cashier/tables" element={< TablesBusy />} />
+          <Route path="/cashier/close" element={<TableAccount />} />
+
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

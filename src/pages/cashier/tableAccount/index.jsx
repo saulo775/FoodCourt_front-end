@@ -12,36 +12,42 @@ import {
     Container,
     AllProducts,
     Product,
-    Infos
+    Infos,
+    Total
 } from "./styles"
 import config from "../../../config/config";
 
-function Cart() {
-    const { cart, setCart, token, table } = React.useContext(userContext);
+function TableAccount() {
+    const { token, table } = React.useContext(userContext);
+    const [products, setProducts] = React.useState([]);
+    const [total, setTotal] = React.useState(0);
     const navigate = useNavigate();
 
-    async function handleSaveFoodRequisition() {
-        const foods = [];
-        cart.forEach((product) => {
-            foods.push(product.id);
+    React.useEffect(() => {
+        const promise = axios({
+            method: "GET",
+            url: `${config.baseUrl}/order/cashier/${table.id} `,
+            headers: { Authorization: `Bearer ${token}` }
         });
+        promise.then(({ data }) => {
+            setProducts(data.allOrders);
+            setTotal(data.total);
+        });
+        promise.catch((e) => {
+            console.log(e);
+        })
+    }, [table.id, token]);
 
+    async function handleCloseAccount(tableId) {
         try {
             await axios({
                 method: "POST",
-                url: `${config.baseUrl}/order`,
-                data: {
-                    productsOrder: foods,
-                    table
-                },
+                url: `${config.baseUrl}/order/cashier/close-account/${tableId}`,
                 headers: { Authorization: `Bearer ${token}` }
             });
-
-            alert("Pedido feito");
-            setCart([]);
-            navigate(`/waiter/menu`);
+            navigate("/cashier/tables");
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error);
         }
     }
 
@@ -51,14 +57,14 @@ function Cart() {
                 <h1>Mesa {table.numberTable}</h1>
                 <FiCornerDownLeft
                     onClick={() => {
-                        navigate("/waiter/menu")
+                        navigate("/cashier/tables");
                     }}
                 />
             </Header>
             <Container>
                 <AllProducts>
                     {
-                        cart ? cart.map((product) => {
+                        products ? products.map((product) => {
                             return (
                                 <Product key={product.id}>
                                     <Infos>
@@ -72,11 +78,18 @@ function Cart() {
                             )
                         }) : <h1>carregando</h1>
                     }
+
                 </AllProducts>
-                <button disabled={cart.length > 0 ? false : true} onClick={handleSaveFoodRequisition}>Fazer Pedido</button>
+                <Total>Total R$ {total}</Total>
+                <button
+                    disabled={products.length > 0 ? false : true}
+                    onClick={() => {
+                        handleCloseAccount(table.id);
+                    }}
+                >Encerrar conta</button>
             </Container>
         </>
     ) : <SignIn />
 }
 
-export default Cart;
+export default TableAccount;

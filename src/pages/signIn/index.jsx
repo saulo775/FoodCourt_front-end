@@ -31,6 +31,8 @@ function SignIn() {
                 navigate("/manager");
             } else if (data.user.permission === 'garçom') {
                 navigate("/waiter/tables");
+            } else {
+                navigate("/cashier/tables")
             }
 
 
